@@ -29,6 +29,7 @@ public class GreenKartLandingPage {
 	public void user_searched_with_shortname_and_extracted_actual_name_of_product(String shortName)
 			throws InterruptedException {
 
+		
 		LandingPage landingPage = testContextSetup.pageObjectManager.getLandingPage();
 		landingPage.searchWithName(shortName);
 		Thread.sleep(2000);

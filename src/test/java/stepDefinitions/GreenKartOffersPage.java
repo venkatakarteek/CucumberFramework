@@ -17,7 +17,7 @@ public class GreenKartOffersPage {
 
 	@Then("^User searched for \"([^\\\"]*)\" Shortname in offers page$")
 	public void user_searched_for_same_shortname_in_offers_page_to_check_if_product_exists(String shortName) {
-		OffersPage offersPage = new OffersPage(testContextSetup.driver);
+		OffersPage offersPage = testContextSetup.pageObjectManager.getOffersPage();
 		offersPage.switchToWindow();
 		offersPage.searchByName(shortName);
 		dealsProductName = offersPage.getTextofElement();
