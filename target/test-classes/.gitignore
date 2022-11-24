@@ -1,3 +1,7 @@
 /stepDefinitions/
 /utils/
 /pageObjects/
+/testData/
+/resources/
+/features/
+/cucumberOptions/

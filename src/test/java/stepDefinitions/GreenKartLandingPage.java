@@ -13,6 +13,7 @@ public class GreenKartLandingPage {
 
 	TestContextSetup testContextSetup;
 	PageObjectManager pageObjectManager;
+	LandingPage landingPage;
 
 	public GreenKartLandingPage(TestContextSetup testContextSetup) {
 		this.testContextSetup = testContextSetup;
@@ -20,21 +21,17 @@ public class GreenKartLandingPage {
 
 	@Given("^User is on Greenkart Landing page$")
 	public void user_is_on_greenkart_landing_page() {
-		testContextSetup.driver = new ChromeDriver();
-		testContextSetup.driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 
+		landingPage = testContextSetup.pageObjectManager.getLandingPage();
 	}
 
-	@When("^User searched with Shortname \"([^\\\"]*)\" and extracted actual name of product$")
+	@When("^User searched with Shortname (.+) and extracted actual name of product$")
 	public void user_searched_with_shortname_and_extracted_actual_name_of_product(String shortName)
 			throws InterruptedException {
 
-		
-		LandingPage landingPage = testContextSetup.pageObjectManager.getLandingPage();
 		landingPage.searchWithName(shortName);
 		Thread.sleep(2000);
 		testContextSetup.actualProduct = landingPage.getProductName().split("-")[0].trim();
-		landingPage.clickOnLink();
 
 	}
 

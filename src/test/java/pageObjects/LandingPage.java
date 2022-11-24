@@ -22,8 +22,9 @@ public class LandingPage {
 	public String getProductName() {
 		return driver.findElement(produtName).getText();
 	}
-	
-	public void clickOnLink() {
+
+	public void selectTopDealsLink() {
 		driver.findElement(topDealslink).click();
 	}
+
 }
