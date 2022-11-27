@@ -17,6 +17,24 @@ public class CheckoutPage {
 
 	By promoButton = By.className("promoBtn");
 	By placeOrderButton = By.xpath("//button[normalize-space()='Place Order']");
-
 	
+	By productName=By.xpath("//tbody//tr//td[2]/p");
+	
+	public void CheckOutItems() {
+		driver.findElement(cartButton).click();
+		driver.findElement(checkOutButton).click();
+	}
+
+	public boolean verifyPromoBtn() {
+		return driver.findElement(promoButton).isDisplayed();
+	}
+	
+	public boolean verifyPlaceOrderBtn() {
+		return driver.findElement(placeOrderButton).isDisplayed();
+	}
+	
+	public String getProductName() {
+		String name =driver.findElement(productName).getText();
+		return name;
+	}
 }

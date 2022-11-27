@@ -2,6 +2,8 @@ package stepDefinitions;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
 import io.cucumber.java.en.*;
 import pageObjects.LandingPage;
 import pageObjects.PageObjectManager;
@@ -17,12 +19,12 @@ public class GreenKartLandingPage {
 
 	public GreenKartLandingPage(TestContextSetup testContextSetup) {
 		this.testContextSetup = testContextSetup;
+		this.landingPage = testContextSetup.pageObjectManager.getLandingPage();
 	}
 
 	@Given("^User is on Greenkart Landing page$")
 	public void user_is_on_greenkart_landing_page() {
-
-		landingPage = testContextSetup.pageObjectManager.getLandingPage();
+		Assert.assertTrue(landingPage.getTitleLandingPage().contains("GreenKart"));
 	}
 
 	@When("^User searched with Shortname (.+) and extracted actual name of product$")
@@ -31,8 +33,15 @@ public class GreenKartLandingPage {
 
 		landingPage.searchWithName(shortName);
 		Thread.sleep(2000);
+		testContextSetup.productName = landingPage.getProductName();
 		testContextSetup.actualProduct = landingPage.getProductName().split("-")[0].trim();
 
 	}
 
+	@And("^Added \"([^\"]*)\" items of the selected product to cart$")
+	public void added_something_items_of_the_selected_product_to_cart(String quantity) throws Throwable {
+		landingPage.IncrementQuantity(Integer.parseInt(quantity));
+		landingPage.addToCart(); 
+
+	}
 }

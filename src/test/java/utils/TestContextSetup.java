@@ -10,6 +10,8 @@ public class TestContextSetup {
 
 	public WebDriver driver;
 	public String actualProduct;
+	public String productName;
+	public int productQuantity;
 	public PageObjectManager pageObjectManager;
 	public TestBase testBase;
 	public GenericUtils genericUtils;

@@ -1,5 +1,6 @@
 Feature: Place the order for products
 
+@PlaceOrder
 Scenario Outline: Add product to cart
 
 Given User is on Greenkart Landing page
@@ -11,3 +12,5 @@ And Verify User has ability to enter promo code and place the order
 Examples:
 | vegName |
 | Tom     |
+| Cauli   |
+| Beet    |

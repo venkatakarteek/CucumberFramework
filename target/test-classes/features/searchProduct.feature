@@ -1,5 +1,6 @@
 Feature: Search and Order Products from GreetKart page
 
+@SearchPage
 Scenario Outline: Search Experience for product search in both Home page and Offers page
 
 Given User is on Greenkart Landing page
