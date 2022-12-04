@@ -1,7 +1,6 @@
 package utils;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
@@ -18,7 +17,7 @@ public class TestBase {
 	public WebDriver WebDriverManager() throws IOException {
 
 		Properties properties = new Properties();
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\GlobalDataProperties";
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\GlobalData.properties";
 		FileInputStream fis = new FileInputStream(filePath);
 		properties.load(fis);
 		String url = properties.getProperty("url");

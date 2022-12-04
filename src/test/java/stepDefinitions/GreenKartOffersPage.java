@@ -18,7 +18,8 @@ public class GreenKartOffersPage {
 	}
 
 	@Then("^User searched for (.+) Shortname in offers page$")
-	public void user_searched_for_same_shortname_in_offers_page_to_check_if_product_exists(String shortName) throws InterruptedException {
+	public void user_searched_for_same_shortname_in_offers_page_to_check_if_product_exists(String shortName)
+			throws InterruptedException {
 		offersPage = testContextSetup.pageObjectManager.getOffersPage();
 		SwitchToOffersPage();
 		Thread.sleep(2000);
@@ -35,7 +36,7 @@ public class GreenKartOffersPage {
 
 	@And("^validate product name in offers page matches with product name in landing page$")
 	public void validate_product_name_in_offers_page_matches_with_product_name_in_landing_page() throws Throwable {
-		Assert.assertEquals(testContextSetup.actualProduct, dealsProductName);
+		Assert.assertEquals(dealsProductName, testContextSetup.actualProduct);
 	}
 
 }
